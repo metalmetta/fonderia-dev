@@ -14,10 +14,10 @@ export function CTASection() {
         className="mx-auto max-w-4xl rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 p-12 text-center"
       >
         <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-          Ready to Start Building?
+          Want to build with us?
         </h2>
         <p className="mb-8 text-lg text-muted-foreground">
-          Join developers who are forging the future with Fonderia.
+          Tell us what you're building for an opportunity to be invited to campus and access to our community of top founders. We'll get back to you within 2 weeks.
         </p>
         <LoginDialog />
       </motion.div>

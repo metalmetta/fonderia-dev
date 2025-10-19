@@ -36,7 +36,7 @@ export function FeaturesSection() {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Crafted for Developers
+            Crafted for the brave ones
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Everything you need to build, deploy, and scale your applications

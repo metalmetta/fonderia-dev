@@ -12,7 +12,7 @@ export default function Home() {
       <CTASection />
 
       <footer className="border-t py-8 text-center text-sm text-muted-foreground">
-        <p>© 2025 Fonderia. Forging Digital Excellence.</p>
+        <p>© 2025 Fonderia. The home of Builders.</p>
       </footer>
     </main>
   );

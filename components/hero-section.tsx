@@ -35,7 +35,7 @@ export function HeroSection() {
           className="space-y-2"
         >
           <h1 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
-            The Builders Arena
+            The Home of Builders
           </h1>
           <p className="mx-auto max-w-[600px] text-sm text-muted-foreground sm:text-base md:text-lg">
             Build, deploy, and scale your applications with the power of modern

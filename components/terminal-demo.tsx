@@ -8,10 +8,10 @@ export function TerminalDemo() {
       <div className="w-full max-w-2xl space-y-8">
         <div className="space-y-4 text-center">
           <h2 className="text-3xl font-bold tracking-tight">
-            Start Forging in Seconds
+            Cut the bull****
           </h2>
           <p className="text-muted-foreground">
-            Simple commands, powerful results
+            Start building something, now.
           </p>
         </div>
 
