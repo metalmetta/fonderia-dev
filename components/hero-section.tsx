@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 py-20">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 py-20 pt-24">
       <RetroGrid
         className="opacity-50"
         angle={65}

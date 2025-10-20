@@ -13,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Github } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 
 export function LoginDialog() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +22,9 @@ export function LoginDialog() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const supabase = createClient();
 
   const handleEmailAuth = async (e: React.FormEvent) => {
+    const supabase = createClient();
     e.preventDefault();
     setIsLoading(true);
     setError(null);
@@ -57,6 +57,7 @@ export function LoginDialog() {
   };
 
   const handleGithubAuth = async () => {
+    const supabase = createClient();
     setIsLoading(true);
     setError(null);
 
@@ -75,6 +76,7 @@ export function LoginDialog() {
   };
 
   const handleGoogleAuth = async () => {
+    const supabase = createClient();
     setIsLoading(true);
     setError(null);
 
@@ -119,7 +121,7 @@ export function LoginDialog() {
               disabled={isLoading}
               className="w-full"
             >
-              <Github className="mr-2 h-4 w-4" />
+              <GithubIcon className="mr-2 h-4 w-4" />
               Continue with GitHub
             </Button>
             <Button
