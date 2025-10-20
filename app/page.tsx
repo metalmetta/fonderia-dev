@@ -11,7 +11,7 @@ export default function Home() {
       <FeaturesSection />
       <CTASection />
 
-      <footer className="border-t py-8 text-center text-sm text-muted-foreground">
+      <footer className="border-t px-4 py-6 text-center text-xs text-muted-foreground sm:py-8 sm:text-sm">
         <p>© 2025 Fonderia. The home of Builders.</p>
       </footer>
     </main>

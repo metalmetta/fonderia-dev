@@ -4,13 +4,13 @@ import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/ui/termina
 
 export function TerminalDemo() {
   return (
-    <section className="flex min-h-screen items-center justify-center px-4 py-16">
-      <div className="w-full max-w-2xl space-y-8">
-        <div className="space-y-4 text-center">
-          <h2 className="text-3xl font-bold tracking-tight">
+    <section className="flex min-h-screen items-center justify-center px-4 py-16 sm:py-20">
+      <div className="w-full max-w-2xl space-y-6 sm:space-y-8">
+        <div className="space-y-3 text-center sm:space-y-4">
+          <h2 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl">
             Cut the bull****
           </h2>
-          <p className="text-muted-foreground">
+          <p className="text-sm text-muted-foreground sm:text-base">
             Start building something, now.
           </p>
         </div>
