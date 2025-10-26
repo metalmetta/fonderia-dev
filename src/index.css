@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Fonderia forge palette - dark, industrial, fiery */
+    --charcoal: 210 15% 5%;
+    --iron: 210 10% 12%;
+    --iron-light: 210 8% 18%;
+    --ash: 210 8% 65%;
+    --ash-dark: 210 10% 45%;
+    --ember-start: 24 100% 50%;
+    --ember-end: 38 100% 50%;
+    --forge-glow: 24 100% 50%;
+    
+    --background: var(--charcoal);
+    --foreground: 0 0% 95%;
+    
+    --card: var(--iron);
+    --card-foreground: 0 0% 95%;
+    
+    --popover: var(--iron);
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: var(--ember-start);
+    --primary-foreground: 0 0% 5%;
+    
+    --secondary: var(--iron-light);
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: var(--iron-light);
+    --muted-foreground: var(--ash);
+    
+    --accent: var(--ember-start);
+    --accent-foreground: 0 0% 5%;
+    
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 95%;
+    
+    --border: var(--iron-light);
+    --input: var(--iron-light);
+    --ring: var(--ember-start);
+    
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+  }
+}
+
+/* Film grain texture overlay */
+@layer utilities {
+  .grain-overlay {
+    position: relative;
+  }
+  
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .ember-glow {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .ember-glow:hover {
+    box-shadow: 0 0 20px hsl(var(--forge-glow) / 0.4), 
+                0 0 40px hsl(var(--forge-glow) / 0.2);
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .ember-glow {
+      transition: none;
+    }
+  }
+}
