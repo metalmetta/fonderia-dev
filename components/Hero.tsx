@@ -1,6 +1,4 @@
 import { Button } from "@/components/ui/button";
-import forgeHero from "@/assets/forge-hero.jpg";
-import forgeWorkshop from "@/assets/forge-workshop.png";
 
 interface HeroProps {
   onForgeClick: () => void;
@@ -17,7 +15,7 @@ export const Hero = ({ onForgeClick }: HeroProps) => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(${forgeHero})`,
+            backgroundImage: `url(/assets/forge-hero.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.4,
@@ -27,7 +25,7 @@ export const Hero = ({ onForgeClick }: HeroProps) => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `url(${forgeWorkshop})`,
+            backgroundImage: `url(/assets/forge-workshop.png)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 0.3,

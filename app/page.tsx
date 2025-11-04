@@ -1,10 +1,12 @@
+"use client";
+
 import { useState } from "react";
 import { Hero } from "@/components/Hero";
 import { Manifesto } from "@/components/Manifesto";
 import { Footer } from "@/components/Footer";
 import { AuthModal } from "@/components/AuthModal";
 
-const Index = () => {
+export default function HomePage() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   return (
@@ -15,6 +17,5 @@ const Index = () => {
       <AuthModal open={isAuthModalOpen} onOpenChange={setIsAuthModalOpen} />
     </div>
   );
-};
+}
 
-export default Index;

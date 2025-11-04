@@ -1,55 +1,110 @@
-# Fonderia Dev
+# Fonderia - Milan's Forge for Builders
 
-## Project info
+A Next.js application for Fonderia, featuring authentication with Supabase OAuth.
 
-A physical home in Milan where founders and builders collide to make real things.
+## Setup
 
-## How can I edit this code?
+### Prerequisites
 
-There are several ways of editing your application.
+- Node.js 18+ installed
+- A Supabase project with OAuth providers configured
 
-**Use your preferred IDE**
+### Environment Variables
 
-Follow these steps:
+Create a `.env.local` file in the root directory with your Supabase credentials:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-project-url.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+**How to get these values:**
 
-# Step 3: Install the necessary dependencies.
-npm i
+1. Go to your Supabase project dashboard
+2. Navigate to **Project Settings** → **API**
+3. Copy **Project URL** → use for `NEXT_PUBLIC_SUPABASE_URL`
+4. Copy **anon public** key → use for `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### OAuth Configuration
+
+Make sure your Supabase project has the following OAuth providers configured:
+
+1. **GitHub OAuth**: Configure in Supabase Dashboard → Authentication → Providers
+2. **Google OAuth**: Configure in Supabase Dashboard → Authentication → Providers
+
+For each provider, set the callback URL to:
+- Development: `http://localhost:3000/auth/callback`
+- Production: `https://your-domain.com/auth/callback`
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:3000`.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build
 
-**Use GitHub Codespaces**
+```bash
+npm run build
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Start Production Server
 
-## What technologies are used for this project?
+```bash
+npm start
+```
 
-This project is built with:
+## Deployment to Vercel
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is ready for deployment to Vercel:
 
-## How can I deploy this project?
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Add the environment variables in Vercel:
+   - Go to **Settings** → **Environment Variables**
+   - Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - Set them for Production, Preview, and Development environments
+4. Deploy!
 
-You can deploy this project to any static hosting service like Vercel, Netlify, or GitHub Pages.
+Vercel will automatically detect this as a Next.js project and configure the build settings.
+
+## Features
+
+- 🔥 Modern Next.js 15 with App Router
+- 🎨 Tailwind CSS with custom design system
+- 🔐 Supabase Authentication (Email, GitHub, Google)
+- 📱 Fully responsive design
+- ♿ Accessibility-first approach
+- 🎭 Custom forge-themed UI
+
+## Project Structure
+
+```
+├── app/                    # Next.js app directory
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   ├── globals.css        # Global styles
+│   └── auth/              # Authentication routes
+├── components/            # React components
+│   ├── ui/               # UI components
+│   ├── AuthModal.tsx     # Authentication modal
+│   ├── Hero.tsx          # Hero section
+│   ├── Manifesto.tsx     # Manifesto section
+│   └── Footer.tsx        # Footer component
+├── lib/                   # Utility functions
+│   └── supabase/         # Supabase client setup
+├── public/               # Static assets
+└── middleware.ts         # Next.js middleware for auth
+```
+
+## License
+
+© 2025 Fonderia. Milan, Italy.
