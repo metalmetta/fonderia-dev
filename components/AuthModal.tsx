@@ -2,21 +2,18 @@
 
 import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { GithubIcon } from "lucide-react";
+import { Mail, Github } from "lucide-react";
 
-export function LoginDialog() {
-  const [isOpen, setIsOpen] = useState(false);
+interface AuthModalProps {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}
+
+export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
   const [email, setEmail] = useState("");
@@ -46,7 +43,7 @@ export function LoginDialog() {
           password,
         });
         if (error) throw error;
-        setIsOpen(false);
+        onOpenChange(false);
         window.location.reload();
       }
     } catch (err: any) {
@@ -95,42 +92,40 @@ export function LoginDialog() {
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogTrigger asChild>
-        <Button size="lg" className="font-semibold">
-          Start Forging
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent 
+        className="sm:max-w-md bg-iron border-iron-light"
+        aria-describedby="auth-modal-description"
+      >
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">
-            {isSignUp ? "Create Account" : "Welcome Back"}
+          <DialogTitle className="text-2xl font-serif text-center">
+            {isSignUp ? "Join the Forge" : "Enter the Forge"}
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription id="auth-modal-description" className="text-center text-ash">
             {isSignUp
-              ? "Sign up to start building with Fonderia"
-              : "Sign in to continue to your dashboard"}
+              ? "Create your account to start building"
+              : "Sign in to continue to your forge"}
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4 py-4">
+        <div className="space-y-4 pt-4">
           <div className="grid gap-3">
             <Button
-              variant="outline"
+              variant="secondary"
               onClick={handleGithubAuth}
               disabled={isLoading}
-              className="w-full"
+              className="w-full justify-start gap-3 hover:bg-iron-light"
             >
-              <GithubIcon className="mr-2 h-4 w-4" />
+              <Github className="w-5 h-5" />
               Continue with GitHub
             </Button>
             <Button
-              variant="outline"
+              variant="secondary"
               onClick={handleGoogleAuth}
               disabled={isLoading}
-              className="w-full"
+              className="w-full justify-start gap-3 hover:bg-iron-light"
             >
-              <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path
                   fill="currentColor"
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -154,10 +149,10 @@ export function LoginDialog() {
 
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t" />
+              <span className="w-full border-t border-iron-light" />
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-background px-2 text-muted-foreground">
+              <span className="bg-iron px-2 text-ash">
                 Or continue with email
               </span>
             </div>
@@ -165,7 +160,7 @@ export function LoginDialog() {
 
           <form onSubmit={handleEmailAuth} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-ash">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -174,11 +169,12 @@ export function LoginDialog() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 disabled={isLoading}
+                className="bg-iron-light border-iron-light"
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-ash">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -188,6 +184,7 @@ export function LoginDialog() {
                 required
                 disabled={isLoading}
                 minLength={6}
+                className="bg-iron-light border-iron-light"
               />
             </div>
 
@@ -208,7 +205,7 @@ export function LoginDialog() {
             <button
               type="button"
               onClick={() => setIsSignUp(!isSignUp)}
-              className="text-primary hover:underline"
+              className="text-ash hover:text-foreground transition-colors"
               disabled={isLoading}
             >
               {isSignUp
@@ -220,4 +217,4 @@ export function LoginDialog() {
       </DialogContent>
     </Dialog>
   );
-}
+};

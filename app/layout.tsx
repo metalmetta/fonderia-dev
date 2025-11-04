@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/header";
-import { Analytics } from "@vercel/analytics/next";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const cormorant = Cormorant_Garamond({ 
+  weight: ["400", "600", "700"],
+  subsets: ["latin"], 
+  variable: "--font-cormorant" 
+});
 
 export const metadata: Metadata = {
-  title: "Fonderia - Forging Digital Excellence",
-  description: "A modern foundry for digital innovation",
+  title: "Fonderia - Milan's forge for builders",
+  description: "A living space where builders gather, where heat turns into form. Fonderia is the forge of builders.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -17,12 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>
-        <Header />
+    <html lang="en">
+      <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   );
 }
+

@@ -1,101 +1,110 @@
-# Fonderia - Forging Digital Excellence
+# Fonderia - Milan's Forge for Builders
 
-A modern landing page built with Next.js 15, TypeScript, Tailwind CSS, and Supabase authentication.
+A Next.js application for Fonderia, featuring authentication with Supabase OAuth.
 
-## Features
-
-- 🎨 Retro-futuristic design with ASCII art branding
-- 🔐 Supabase authentication (Email/Password, GitHub, Google OAuth)
-- ⚡ Built with Next.js 15 App Router and React Server Components
-- 🎭 Beautiful animations with Framer Motion
-- 🎯 Type-safe with TypeScript
-- 💅 Styled with Tailwind CSS and ShadCN UI components
-
-## Getting Started
+## Setup
 
 ### Prerequisites
 
 - Node.js 18+ installed
-- A Supabase account and project
+- A Supabase project with OAuth providers configured
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory with your Supabase credentials:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-project-url.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+```
+
+**How to get these values:**
+
+1. Go to your Supabase project dashboard
+2. Navigate to **Project Settings** → **API**
+3. Copy **Project URL** → use for `NEXT_PUBLIC_SUPABASE_URL`
+4. Copy **anon public** key → use for `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+### OAuth Configuration
+
+Make sure your Supabase project has the following OAuth providers configured:
+
+1. **GitHub OAuth**: Configure in Supabase Dashboard → Authentication → Providers
+2. **Google OAuth**: Configure in Supabase Dashboard → Authentication → Providers
+
+For each provider, set the callback URL to:
+- Development: `http://localhost:3000/auth/callback`
+- Production: `https://your-domain.com/auth/callback`
 
 ### Installation
-
-1. Clone the repository
-2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Copy `.env.local.example` to `.env.local` and fill in your Supabase credentials:
-
-```bash
-cp .env.local.example .env.local
-```
-
-Add your Supabase project URL and anon key:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-```
-
-### Supabase Setup
-
-1. Go to your Supabase project dashboard
-2. Enable Email authentication in Authentication > Providers
-3. Enable OAuth providers (GitHub, Google) if desired
-4. Add your site URL to Authentication > URL Configuration:
-   - Site URL: `http://localhost:3000` (development)
-   - Redirect URLs: `http://localhost:3000/auth/callback`
-
-### Run Development Server
+### Development
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the landing page.
+The app will be available at `http://localhost:3000`.
+
+### Build
+
+```bash
+npm run build
+```
+
+### Start Production Server
+
+```bash
+npm start
+```
+
+## Deployment to Vercel
+
+This project is ready for deployment to Vercel:
+
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Add the environment variables in Vercel:
+   - Go to **Settings** → **Environment Variables**
+   - Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - Set them for Production, Preview, and Development environments
+4. Deploy!
+
+Vercel will automatically detect this as a Next.js project and configure the build settings.
+
+## Features
+
+- 🔥 Modern Next.js 15 with App Router
+- 🎨 Tailwind CSS with custom design system
+- 🔐 Supabase Authentication (Email, GitHub, Google)
+- 📱 Fully responsive design
+- ♿ Accessibility-first approach
+- 🎭 Custom forge-themed UI
 
 ## Project Structure
 
 ```
-fonderia-dev/
-├── app/
-│   ├── auth/callback/   # Auth callback handler
-│   ├── globals.css      # Global styles
-│   ├── layout.tsx       # Root layout
-│   └── page.tsx         # Home page
-├── components/
-│   ├── ui/              # UI components (Button, Dialog, etc.)
-│   ├── hero-section.tsx
-│   ├── terminal-demo.tsx
-│   ├── features-section.tsx
-│   ├── cta-section.tsx
-│   └── login-dialog.tsx
-├── lib/
-│   ├── supabase/        # Supabase client utilities
-│   └── utils.ts         # Helper functions
-└── middleware.ts        # Next.js middleware for auth
+├── app/                    # Next.js app directory
+│   ├── layout.tsx         # Root layout
+│   ├── page.tsx           # Home page
+│   ├── globals.css        # Global styles
+│   └── auth/              # Authentication routes
+├── components/            # React components
+│   ├── ui/               # UI components
+│   ├── AuthModal.tsx     # Authentication modal
+│   ├── Hero.tsx          # Hero section
+│   ├── Manifesto.tsx     # Manifesto section
+│   └── Footer.tsx        # Footer component
+├── lib/                   # Utility functions
+│   └── supabase/         # Supabase client setup
+├── public/               # Static assets
+└── middleware.ts         # Next.js middleware for auth
 ```
-
-## Tech Stack
-
-- **Framework**: Next.js 15
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animation**: Framer Motion
-- **UI Components**: ShadCN UI (Radix UI primitives)
-- **Authentication**: Supabase Auth
-- **Database**: Supabase PostgreSQL
-
-## Scripts
-
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build for production
-- `npm start` - Start production server
-- `npm run lint` - Run ESLint
 
 ## License
 
-MIT
+© 2025 Fonderia. Milan, Italy.
