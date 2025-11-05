@@ -11,7 +11,7 @@ A Next.js application for Fonderia, featuring authentication with Supabase OAuth
 
 ### Environment Variables
 
-Create a `.env.local` file in the root directory with your Supabase credentials:
+Create a `.env` file in the root directory with your Supabase credentials:
 
 ```env
 NEXT_PUBLIC_SUPABASE_URL=your-project-url.supabase.co
