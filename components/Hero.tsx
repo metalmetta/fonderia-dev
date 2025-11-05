@@ -7,7 +7,7 @@ interface HeroProps {
 export const Hero = ({ onForgeClick }: HeroProps) => {
   return (
     <section 
-      className="relative min-h-screen flex flex-col items-center justify-center grain-overlay overflow-hidden"
+      className="relative h-screen flex flex-col items-center justify-center grain-overlay overflow-hidden"
       aria-label="Hero section"
     >
       {/* Background images - layered */}

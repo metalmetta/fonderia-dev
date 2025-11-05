@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   return (
-    <footer className="relative py-8 px-6 grain-overlay mt-24 border-t border-iron-light" role="contentinfo">
+    <footer className="relative py-8 px-6 grain-overlay bg-charcoal border-t border-iron-light" role="contentinfo">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center gap-6">
           <Button

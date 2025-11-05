@@ -2,10 +2,10 @@ import { SparkParticles } from "./SparkParticles";
 
 export const Manifesto = () => {
   return (
-    <main id="main">
+    <main id="main" className="bg-charcoal">
       <section 
         id="manifesto" 
-        className="relative min-h-screen py-24 px-6 grain-overlay bg-charcoal"
+        className="relative py-24 px-6 grain-overlay bg-charcoal"
         aria-labelledby="manifesto-heading"
       >
         <SparkParticles />
