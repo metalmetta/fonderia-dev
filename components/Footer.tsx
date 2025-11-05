@@ -13,7 +13,7 @@ export const Footer = () => {
             className="text-ash hover:text-ember-start hover:bg-iron-light transition-colors"
           >
             <a
-              href="mailto:hello@fonderia.dev"
+              href="mailto:pietro.fantini1998@gmail.com,matteo@getfluida.com"
               className="flex items-center gap-2"
               aria-label="Email us"
             >
