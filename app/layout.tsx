@@ -12,9 +12,7 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: "Fonderia - Milan's forge for builders",
   description: "A living space where builders gather, where heat turns into form. Fonderia is the forge of builders.",
-  icons: {
-    icon: "/favicon.ico",
-  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
