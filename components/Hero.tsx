@@ -61,7 +61,7 @@ export const Hero = ({ onForgeClick }: HeroProps) => {
             size="lg"
             onClick={onForgeClick}
             className="relative text-lg px-12 py-6 h-auto"
-            aria-label="Enter the forge - Open authentication modal"
+            aria-label="Join the forge - Open sign up"
           >
             Forge
           </Button>

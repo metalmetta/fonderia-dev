@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export const Footer = () => {
   return (
-    <footer className="relative py-16 px-6 grain-overlay border-t border-iron-light" role="contentinfo">
+    <footer className="relative py-8 px-6 grain-overlay mt-24 border-t border-iron-light" role="contentinfo">
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col items-center gap-6">
           <Button
@@ -13,7 +13,7 @@ export const Footer = () => {
             className="text-ash hover:text-ember-start hover:bg-iron-light transition-colors"
           >
             <a
-              href="mailto:pietro.fantini1998@gmail.com,matteo@getfluida.com"
+              href="mailto:hello@fonderia.dev"
               className="flex items-center gap-2"
               aria-label="Email us"
             >

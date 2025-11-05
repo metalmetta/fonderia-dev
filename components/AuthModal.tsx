@@ -15,7 +15,7 @@ interface AuthModalProps {
 
 export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -99,13 +99,8 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
       >
         <DialogHeader>
           <DialogTitle className="text-2xl font-serif text-center">
-            {isSignUp ? "Join the Forge" : "Enter the Forge"}
+            Join the Forge
           </DialogTitle>
-          <DialogDescription id="auth-modal-description" className="text-center text-ash">
-            {isSignUp
-              ? "Create your account to start building"
-              : "Sign in to continue to your forge"}
-          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-4 pt-4">
@@ -193,26 +188,9 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
             )}
 
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading
-                ? "Loading..."
-                : isSignUp
-                ? "Sign Up"
-                : "Sign In"}
+              {isLoading ? "Loading..." : "Sign Up"}
             </Button>
           </form>
-
-          <div className="text-center text-sm">
-            <button
-              type="button"
-              onClick={() => setIsSignUp(!isSignUp)}
-              className="text-ash hover:text-foreground transition-colors"
-              disabled={isLoading}
-            >
-              {isSignUp
-                ? "Already have an account? Sign in"
-                : "Don't have an account? Sign up"}
-            </button>
-          </div>
         </div>
       </DialogContent>
     </Dialog>
