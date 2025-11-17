@@ -37,7 +37,6 @@ For each provider, set the callback URL to:
 - Production: `https://your-domain.com/auth/callback`
 
 ### Installation
-
 ```bash
 npm install
 ```
