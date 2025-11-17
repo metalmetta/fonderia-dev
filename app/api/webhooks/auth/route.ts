@@ -49,7 +49,6 @@ async function sendWelcomeEmail(email: string) {
 
     const { data, error } = await resend.emails.send({
       to: email,
-      bcc: ["matteo@getfluida.com"], 
       template: {
         id: "d308991a-42ca-4ec4-adb2-cd1e1c8a38d8",
       },
