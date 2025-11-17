@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail, Github } from "lucide-react";
+import { useFireConfetti } from "@/hooks/use-fire-confetti";
 
 interface AuthModalProps {
   open: boolean;
@@ -19,6 +20,7 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
+  const { triggerFireConfetti } = useFireConfetti();
 
   const handleEmailAuth = async (e: React.FormEvent) => {
     const supabase = createClient();
@@ -36,8 +38,15 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
           },
         });
         if (error) throw error;
+        
+        // Trigger fire confetti celebration
+        triggerFireConfetti();
         onOpenChange(false);
-        window.location.reload();
+        
+        // Delay reload to show confetti
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       } else {
         const { error } = await supabase.auth.signInWithPassword({
           email,
@@ -67,6 +76,11 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
         },
       });
       if (error) throw error;
+      
+      // Trigger fire confetti for OAuth sign up
+      if (isSignUp) {
+        triggerFireConfetti();
+      }
     } catch (err: any) {
       setError(err.message);
       setIsLoading(false);
@@ -86,6 +100,11 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
         },
       });
       if (error) throw error;
+      
+      // Trigger fire confetti for OAuth sign up
+      if (isSignUp) {
+        triggerFireConfetti();
+      }
     } catch (err: any) {
       setError(err.message);
       setIsLoading(false);
