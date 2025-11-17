@@ -69,6 +69,11 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
     setError(null);
 
     try {
+      // Store flag for confetti after OAuth redirect (only for sign-up)
+      if (isSignUp) {
+        sessionStorage.setItem('pendingSignupConfetti', 'true');
+      }
+      
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "github",
         options: {
@@ -76,14 +81,11 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
         },
       });
       if (error) throw error;
-      
-      // Trigger fire confetti for OAuth sign up
-      if (isSignUp) {
-        triggerFireConfetti();
-      }
     } catch (err: any) {
       setError(err.message);
       setIsLoading(false);
+      // Clear flag if error occurs
+      sessionStorage.removeItem('pendingSignupConfetti');
     }
   };
 
@@ -93,6 +95,11 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
     setError(null);
 
     try {
+      // Store flag for confetti after OAuth redirect (only for sign-up)
+      if (isSignUp) {
+        sessionStorage.setItem('pendingSignupConfetti', 'true');
+      }
+      
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
@@ -100,14 +107,11 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
         },
       });
       if (error) throw error;
-      
-      // Trigger fire confetti for OAuth sign up
-      if (isSignUp) {
-        triggerFireConfetti();
-      }
     } catch (err: any) {
       setError(err.message);
       setIsLoading(false);
+      // Clear flag if error occurs
+      sessionStorage.removeItem('pendingSignupConfetti');
     }
   };
 
