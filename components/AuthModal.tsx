@@ -36,7 +36,8 @@ export const AuthModal = ({ open, onOpenChange }: AuthModalProps) => {
           },
         });
         if (error) throw error;
-        setError("Check your email for the confirmation link!");
+        onOpenChange(false);
+        window.location.reload();
       } else {
         const { error } = await supabase.auth.signInWithPassword({
           email,
