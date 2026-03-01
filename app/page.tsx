@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Banner } from "@/components/Banner";
 import { Hero } from "@/components/Hero";
 import { Manifesto } from "@/components/Manifesto";
 import { Footer } from "@/components/Footer";
@@ -27,7 +28,8 @@ export default function HomePage() {
   }, [triggerFireConfetti]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-10">
+      <Banner />
       <Hero onForgeClick={() => setIsAuthModalOpen(true)} />
       <Manifesto />
       <Footer />
