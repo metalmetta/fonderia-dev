@@ -20,7 +20,7 @@ const steps = [
 
 export const BuildFormat = () => {
   return (
-    <section className="relative py-24 px-6 bg-charcoal border-t border-iron-light">
+    <section id="format" className="relative py-24 px-6 bg-charcoal border-t border-iron-light">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4">What happens</h2>
         <p className="text-ash mb-12">A buildathon is simple by design.</p>

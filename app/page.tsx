@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Banner } from "@/components/Banner";
+import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Manifesto } from "@/components/Manifesto";
 import { BuildFormat } from "@/components/BuildFormat";
@@ -32,8 +33,9 @@ export default function HomePage() {
   }, [triggerFireConfetti]);
 
   return (
-    <div className="min-h-screen pt-12">
+    <div className="min-h-screen pt-20">
       <Banner />
+      <Navbar onForgeClick={() => setIsAuthModalOpen(true)} />
       <Hero onForgeClick={() => setIsAuthModalOpen(true)} />
       <Manifesto />
       <BuildFormat />

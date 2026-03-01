@@ -7,7 +7,7 @@ const photos = [
 
 export const PastEvents = () => {
   return (
-    <section className="relative py-24 px-6 bg-charcoal border-t border-iron-light">
+    <section id="gallery" className="relative py-24 px-6 bg-charcoal border-t border-iron-light">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-12">Past Events</h2>
 
