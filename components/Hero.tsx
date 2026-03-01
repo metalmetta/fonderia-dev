@@ -6,13 +6,13 @@ interface HeroProps {
 
 export const Hero = ({ onForgeClick }: HeroProps) => {
   return (
-    <section 
+    <section
       className="relative h-screen flex flex-col items-center justify-center grain-overlay overflow-hidden"
       aria-label="Hero section"
     >
       {/* Background images - layered */}
       <div className="absolute inset-0 z-0">
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `url(/assets/forge-hero.jpg)`,
@@ -22,7 +22,7 @@ export const Hero = ({ onForgeClick }: HeroProps) => {
           }}
           aria-label="Sparks rising from a forge"
         />
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `url(/assets/forge-workshop.png)`,
@@ -40,24 +40,28 @@ export const Hero = ({ onForgeClick }: HeroProps) => {
         <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-iron focus:text-foreground">
           Skip to content
         </a>
-        
+
+        <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-ash mb-6 font-sans">
+          Milan · Italy
+        </p>
+
         <h1 className="text-7xl md:text-8xl lg:text-9xl font-serif font-bold tracking-tight mb-4 animate-fade-in">
           FONDERIA
         </h1>
-        
+
         <p className="text-xl md:text-2xl text-ash mb-12 font-light tracking-wide">
           Milan's forge for builders.
         </p>
 
         <div className="relative inline-block">
-          <div 
+          <div
             className="absolute -inset-4 rounded-md opacity-75 blur-xl animate-pulse"
             style={{
               background: 'linear-gradient(135deg, hsl(24, 100%, 50%), hsl(38, 100%, 50%))'
             }}
           />
-          <Button 
-            variant="forge" 
+          <Button
+            variant="forge"
             size="lg"
             onClick={onForgeClick}
             className="relative text-lg px-12 py-6 h-auto"
@@ -67,6 +71,25 @@ export const Hero = ({ onForgeClick }: HeroProps) => {
           </Button>
         </div>
       </div>
+
+      {/* Scroll indicator */}
+      <a
+        href="#main"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-ash-dark hover:text-ash transition-colors"
+        aria-label="Scroll to content"
+      >
+        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <svg
+          className="w-4 h-4 animate-bounce"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={2}
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </a>
     </section>
   );
 };

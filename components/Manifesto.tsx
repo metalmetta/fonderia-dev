@@ -3,15 +3,15 @@ import { SparkParticles } from "./SparkParticles";
 export const Manifesto = () => {
   return (
     <main id="main" className="bg-charcoal">
-      <section 
-        id="manifesto" 
+      <section
+        id="manifesto"
         className="relative py-24 px-6 grain-overlay bg-charcoal"
         aria-labelledby="manifesto-heading"
       >
         <SparkParticles />
         <article className="relative z-[5] max-w-3xl mx-auto">
           <h2 id="manifesto-heading" className="sr-only">Our Manifesto</h2>
-          
+
           <div className="space-y-8 text-lg md:text-xl leading-relaxed">
             <p className="text-2xl md:text-3xl font-serif font-semibold">
               Fonderia is the forge.
@@ -108,30 +108,19 @@ export const Manifesto = () => {
             <p>
               Let's make things that matter.
             </p>
+          </div>
 
-            <p className="pt-8">
-              No spectators.
-            </p>
+          {/* Climactic closing block */}
+          <div className="mt-20 mb-4 text-center space-y-3">
+            <p className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground">No spectators.</p>
+            <p className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground">No hierarchy.</p>
+            <p className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground">No permission.</p>
+          </div>
 
-            <p>
-              No hierarchy.
-            </p>
-
-            <p>
-              No permission.
-            </p>
-
-            <p>
-              Just the forge.
-            </p>
-
-            <p>
-              The fire.
-            </p>
-
-            <p>
-              And the people who build.
-            </p>
+          <div className="mt-12 text-center space-y-2 text-ash text-xl md:text-2xl font-serif">
+            <p>Just the forge.</p>
+            <p>The fire.</p>
+            <p>And the people who build.</p>
           </div>
         </article>
       </section>

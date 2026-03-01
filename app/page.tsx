@@ -28,11 +28,11 @@ export default function HomePage() {
   }, [triggerFireConfetti]);
 
   return (
-    <div className="min-h-screen pt-10">
+    <div className="min-h-screen pt-12">
       <Banner />
       <Hero onForgeClick={() => setIsAuthModalOpen(true)} />
       <Manifesto />
-      <Footer />
+      <Footer onForgeClick={() => setIsAuthModalOpen(true)} />
       <AuthModal open={isAuthModalOpen} onOpenChange={setIsAuthModalOpen} />
     </div>
   );

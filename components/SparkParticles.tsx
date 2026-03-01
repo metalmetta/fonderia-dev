@@ -104,7 +104,7 @@ export const SparkParticles = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none"
-      style={{ width: "100%", height: "100%", zIndex: 10 }}
+      style={{ width: "100%", height: "100%", zIndex: 1 }}
       aria-hidden="true"
     />
   );

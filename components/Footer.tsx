@@ -1,11 +1,35 @@
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-export const Footer = () => {
+interface FooterProps {
+  onForgeClick: () => void;
+}
+
+export const Footer = ({ onForgeClick }: FooterProps) => {
   return (
-    <footer className="relative py-8 px-6 grain-overlay bg-charcoal border-t border-iron-light" role="contentinfo">
+    <footer className="relative py-12 px-6 grain-overlay bg-charcoal border-t border-iron-light" role="contentinfo">
       <div className="max-w-4xl mx-auto">
-        <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-8">
+
+          <div className="flex flex-col items-center gap-3">
+            <p className="text-ash text-sm">Ready to build?</p>
+            <div className="relative inline-block">
+              <div
+                className="absolute -inset-3 rounded-md opacity-50 blur-lg animate-pulse"
+                style={{
+                  background: 'linear-gradient(135deg, hsl(24, 100%, 50%), hsl(38, 100%, 50%))'
+                }}
+              />
+              <Button
+                variant="forge"
+                onClick={onForgeClick}
+                className="relative"
+              >
+                Join the Forge
+              </Button>
+            </div>
+          </div>
+
           <Button
             variant="ghost"
             size="sm"
