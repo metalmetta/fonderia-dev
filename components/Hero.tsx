@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { MemberCount } from "@/components/MemberCount";
 
 interface HeroProps {
   onForgeClick: () => void;
@@ -70,6 +71,7 @@ export const Hero = ({ onForgeClick }: HeroProps) => {
             Forge
           </Button>
         </div>
+        <MemberCount />
       </div>
 
       {/* Scroll indicator */}

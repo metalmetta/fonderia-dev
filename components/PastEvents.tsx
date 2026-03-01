@@ -1,3 +1,10 @@
+const photos = [
+  "/assets/1763424066595.jpeg",
+  "/assets/1763424067586.jpeg",
+  "/assets/1763424070469.jpeg",
+  "/assets/1763424071489.jpeg",
+];
+
 export const PastEvents = () => {
   return (
     <section className="relative py-24 px-6 bg-charcoal border-t border-iron-light">
@@ -21,6 +28,19 @@ export const PastEvents = () => {
           </div>
           <span className="text-ash-dark group-hover:text-ember-start transition-colors duration-200 mt-1 shrink-0 text-lg">→</span>
         </a>
+
+        <div className="grid grid-cols-2 gap-2 mt-6">
+          {photos.map((src, i) => (
+            <div key={i} className="aspect-video overflow-hidden rounded-sm bg-iron">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={`Fonderia Buildathon #1 — photo ${i + 1}`}
+                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
