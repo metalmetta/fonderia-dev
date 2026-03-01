@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { MemberCount } from "@/components/MemberCount";
+import { Navbar } from "@/components/Navbar";
 
 interface HeroProps {
   onForgeClick: () => void;
@@ -35,6 +36,8 @@ export const Hero = ({ onForgeClick }: HeroProps) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/60 to-charcoal/95" />
       </div>
+
+      <Navbar />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
