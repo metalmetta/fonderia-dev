@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Banner } from "@/components/Banner";
 import { Hero } from "@/components/Hero";
 import { Manifesto } from "@/components/Manifesto";
+import { PastEvents } from "@/components/PastEvents";
 import { Footer } from "@/components/Footer";
 import { AuthModal } from "@/components/AuthModal";
 import { useFireConfetti } from "@/hooks/use-fire-confetti";
@@ -32,6 +33,7 @@ export default function HomePage() {
       <Banner />
       <Hero onForgeClick={() => setIsAuthModalOpen(true)} />
       <Manifesto />
+      <PastEvents />
       <Footer onForgeClick={() => setIsAuthModalOpen(true)} />
       <AuthModal open={isAuthModalOpen} onOpenChange={setIsAuthModalOpen} />
     </div>
